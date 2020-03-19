@@ -1,8 +1,6 @@
 # JVC
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jvc`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+JVC is a neat way to set up mocked API fixtures with VCR.
 
 ## Installation
 
@@ -22,7 +20,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Define a new fixture...
+
+```ruby
+JVC.fixture(:repository) do
+  default do
+    Octokit.repo("rails/rails")
+  end
+
+  trait(:personal) do
+    Octokit.repo("kylemacey/repo-contrib-graph")
+  end
+end
+```
+
+Use it with...
+
+```ruby
+repo = JVC::Fixture[:repository]
+```
+
+Use a specific `trait` with...
+
+```ruby
+repo = JVC::Fixture[:repository, :personal]
+```
 
 ## Development
 
