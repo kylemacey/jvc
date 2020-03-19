@@ -28,6 +28,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "vcr", "~> 5.0"
 
+  spec.add_development_dependency "octokit", "~> 4.17.0"
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
